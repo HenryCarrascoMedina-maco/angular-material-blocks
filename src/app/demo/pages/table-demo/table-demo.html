@@ -1,0 +1,121 @@
+<header class="page-head">
+  <h1>Tabla genérica</h1>
+  <p>
+    Copia <code>src/app/blocks/table</code> a tu proyecto. Configuras columnas, botones y acciones;
+    la tabla se encarga del resto.
+  </p>
+</header>
+
+<mat-tab-group animationDuration="150ms">
+  <mat-tab label="Demo">
+    <div class="tab-body">
+      <!-- Opciones: activa o quita lo que quieras y mira el código en "Cómo se usa" -->
+      <section class="opciones">
+        <span class="opciones-titulo"><mat-icon>tune</mat-icon> Opciones</span>
+        <mat-chip-listbox multiple aria-label="Opciones de la tabla">
+          @for (o of opciones; track o.key) {
+            <mat-chip-option
+              [selected]="op[o.key]()"
+              (selectionChange)="op[o.key].set($event.selected)"
+            >
+              <mat-icon matChipAvatar>{{ o.icon }}</mat-icon>
+              {{ o.label }}
+            </mat-chip-option>
+          }
+        </mat-chip-listbox>
+      </section>
+
+      <ui-table
+        [data]="eventos()"
+        [columns]="columns()"
+        [actions]="actions()"
+        [rowActions]="rowActions()"
+        [searchable]="op.buscador()"
+        searchPlaceholder="Buscar evento…"
+        [exportable]="op.exportar()"
+        exportFileName="eventos"
+        [importable]="op.importar()"
+        [paginated]="op.paginador()"
+        (view)="ver($event)"
+        (edit)="editar($event)"
+        (remove)="eliminar($event)"
+        (import)="importar($event)"
+      >
+        <!-- Filtro propio dentro de la barra -->
+        @if (op.filtro()) {
+          <mat-form-field
+            uiTableFilters
+            appearance="outline"
+            subscriptSizing="dynamic"
+            class="tipo"
+          >
+            <mat-select [(value)]="tipo" placeholder="Todos los tipos">
+              <mat-option [value]="null">Todos los tipos</mat-option>
+              @for (t of tipos; track t) {
+                <mat-option [value]="t">{{ t }}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        }
+
+        <!-- Celdas con diseño propio -->
+        @if (op.celdas()) {
+          <ng-template uiCell="evento" let-e>
+            <div class="evento">
+              <span class="icono"><mat-icon>event</mat-icon></span>
+              <div>
+                <strong>{{ e.titulo }}</strong>
+                <small>
+                  {{ e.lugar }}
+                  @if (e.estado === 'Pendiente') {
+                    <em class="tag">Por revisar</em>
+                  }
+                </small>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template uiCell="tipo" let-e>
+            <span class="chip"
+              ><mat-icon>{{ iconos[e.tipo] }}</mat-icon
+              >{{ e.tipo }}</span
+            >
+          </ng-template>
+
+          <ng-template uiCell="estado" let-e>
+            <span class="estado" [attr.data-estado]="e.estado">{{ e.estado }}</span>
+          </ng-template>
+
+          <ng-template uiCell="responsable" let-e>
+            <div class="persona">
+              <span class="avatar">{{ iniciales(e.responsable.nombre) }}</span>
+              {{ e.responsable.nombre }}
+            </div>
+          </ng-template>
+        }
+      </ui-table>
+
+      <section class="log">
+        <h3>Lo que emite la tabla</h3>
+        @for (l of eventLog(); track $index) {
+          <code>{{ l }}</code>
+        } @empty {
+          <span class="muted">Pulsa ver, editar, el menú ⋮ o los botones de arriba.</span>
+        }
+      </section>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Cómo se usa">
+    <div class="tab-body">
+      <ol class="pasos">
+        <li>Instala Angular Material: <code>ng add &#64;angular/material</code></li>
+        <li>Copia la carpeta <code>src/app/blocks/table</code> a tu proyecto.</li>
+        <li>Impórtala en tu componente y configúrala:</li>
+      </ol>
+      <p class="muted">El código cambia según las opciones activas en la pestaña Demo.</p>
+      <app-code-block title="eventos.ts" [code]="uso().ts" />
+      <app-code-block title="eventos.html" [code]="uso().html" />
+    </div>
+  </mat-tab>
+</mat-tab-group>

@@ -1,0 +1,53 @@
+.page-head {
+  margin-bottom: 20px;
+
+  h1 {
+    font: var(--mat-sys-headline-medium);
+    margin: 0 0 4px;
+  }
+
+  p {
+    margin: 0;
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+.error {
+  color: var(--mat-sys-error);
+}
+
+// Estado: píldora con el color de cada estado (claro y oscuro)
+.estado {
+  display: inline-flex;
+  padding: 5px 12px;
+  border-radius: var(--mat-sys-corner-full);
+  font-weight: 500;
+  background: color-mix(in srgb, currentColor 13%, transparent);
+
+  &[data-estado='Confirmado'] {
+    color: light-dark(#1e7a3a, #6fd98a);
+  }
+  &[data-estado='Pendiente'] {
+    color: light-dark(#a35f00, #f5c04a);
+  }
+  &[data-estado='Cancelado'] {
+    color: var(--mat-sys-error);
+  }
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: 600;
+  background: var(--mat-sys-tertiary-container);
+  color: var(--mat-sys-on-tertiary-container);
+}

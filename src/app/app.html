@@ -1,0 +1,71 @@
+<mat-toolbar class="topbar">
+  @if (isMobile()) {
+    <button matIconButton (click)="nav.toggle()" aria-label="Menú">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+  <a routerLink="/" class="brand">
+    <mat-icon>widgets</mat-icon>
+    <span>angular-material-<b>blocks</b></span>
+  </a>
+  <span class="spacer"></span>
+  <button
+    matIconButton
+    (click)="dark.set(!dark())"
+    [matTooltip]="dark() ? 'Modo claro' : 'Modo oscuro'"
+  >
+    <mat-icon>{{ dark() ? 'light_mode' : 'dark_mode' }}</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container class="container">
+  <mat-sidenav #nav [mode]="isMobile() ? 'over' : 'side'" [opened]="!isMobile()" class="sidenav">
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="isMobile() && nav.close()"
+      >
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span matListItemTitle>Inicio</span>
+      </a>
+      <div mat-subheader>Bloques</div>
+      @for (b of catalog; track b.path) {
+        @if (b.ready) {
+          <a
+            mat-list-item
+            [routerLink]="b.path"
+            routerLinkActive="active"
+            (click)="isMobile() && nav.close()"
+          >
+            <mat-icon matListItemIcon>{{ b.icon }}</mat-icon>
+            <span matListItemTitle>{{ b.title }}</span>
+          </a>
+        } @else {
+          <div class="soon">
+            <mat-icon>{{ b.icon }}</mat-icon>
+            <span>{{ b.title }}<small>Próximamente</small></span>
+          </div>
+        }
+      }
+      <div mat-subheader>Ejemplos</div>
+      <a
+        mat-list-item
+        routerLink="eventos"
+        routerLinkActive="active"
+        (click)="isMobile() && nav.close()"
+      >
+        <mat-icon matListItemIcon>cloud_download</mat-icon>
+        <span matListItemTitle>Tabla con tu backend</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <main>
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

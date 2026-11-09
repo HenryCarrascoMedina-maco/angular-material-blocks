@@ -1,0 +1,36 @@
+// Tema de Angular Material (M3).
+// ¿Otro color? Cambia la paleta: mat.$orange-palette, mat.$azure-palette, mat.$green-palette…
+@use '@angular/material' as mat;
+
+html {
+  height: 100%;
+  // Claro u oscuro según el sistema; la demo lo cambia con el botón de la barra
+  color-scheme: light dark;
+
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$violet-palette,
+        tertiary: mat.$rose-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+}
+
+code {
+  font-family: 'Cascadia Code', Consolas, monospace;
+  font-size: 0.9em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--mat-sys-surface-container-highest);
+}

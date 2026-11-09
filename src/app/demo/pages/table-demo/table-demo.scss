@@ -1,0 +1,183 @@
+.page-head {
+  margin-bottom: 8px;
+
+  h1 {
+    font: var(--mat-sys-headline-medium);
+    margin: 0 0 4px;
+  }
+
+  p {
+    margin: 0;
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+.tab-body {
+  padding: 20px 2px;
+}
+
+.opciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-bottom: 16px;
+}
+
+.opciones-titulo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font: var(--mat-sys-title-small);
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.tipo {
+  width: 200px;
+}
+
+.evento small {
+  display: flex;
+}
+
+small {
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.evento {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  small {
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+  }
+}
+
+.icono {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--mat-sys-primary-container);
+  color: var(--mat-sys-on-primary-container);
+}
+
+.evento strong {
+  font: var(--mat-sys-title-small);
+  font-size: 15px;
+}
+
+// "Por revisar": etiqueta con punto
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-style: normal;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: var(--mat-sys-corner-full);
+  color: var(--mat-sys-error);
+  background: color-mix(in srgb, var(--mat-sys-error) 10%, transparent);
+
+  &::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px 5px 10px;
+  border-radius: var(--mat-sys-corner-small);
+  background: var(--mat-sys-secondary-container);
+  color: var(--mat-sys-on-secondary-container);
+
+  mat-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+  }
+}
+
+// Estado: píldora teñida con el color de cada estado (claro y oscuro)
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  border-radius: var(--mat-sys-corner-full);
+  font-weight: 500;
+  background: color-mix(in srgb, currentColor 13%, transparent);
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  &[data-estado='Confirmado'] {
+    color: light-dark(#1e7a3a, #6fd98a);
+  }
+  &[data-estado='Pendiente'] {
+    color: light-dark(#a35f00, #f5c04a);
+  }
+  &[data-estado='Cancelado'] {
+    color: var(--mat-sys-error);
+  }
+}
+
+.persona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--mat-sys-tertiary-container);
+  color: var(--mat-sys-on-tertiary-container);
+}
+
+.log {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  h3 {
+    font: var(--mat-sys-title-small);
+    margin: 0 0 4px;
+  }
+
+  code {
+    font-size: 13px;
+  }
+}
+
+.muted {
+  color: var(--mat-sys-on-surface-variant);
+}
+
+.pasos {
+  margin-top: 0;
+  line-height: 2;
+}

@@ -1,0 +1,232 @@
+[
+  {
+    "id": 1,
+    "titulo": "Reunión de equipo",
+    "tipo": "Reunión",
+    "fecha": "2026-12-01T09:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Ana Torres"
+    }
+  },
+  {
+    "id": 2,
+    "titulo": "Lanzamiento v2.0",
+    "tipo": "Lanzamiento",
+    "fecha": "2026-12-02T10:30:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Luis Pérez"
+    }
+  },
+  {
+    "id": 3,
+    "titulo": "Feriado: Navidad",
+    "tipo": "Feriado",
+    "fecha": "2026-12-03T16:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Marta Gil"
+    }
+  },
+  {
+    "id": 4,
+    "titulo": "Curso de Angular Material",
+    "tipo": "Formación",
+    "fecha": "2026-12-04T12:00:00",
+    "estado": "Cancelado",
+    "responsable": {
+      "nombre": "Jorge Ruiz"
+    }
+  },
+  {
+    "id": 5,
+    "titulo": "Demo con el cliente",
+    "tipo": "Reunión",
+    "fecha": "2026-12-05T18:00:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Sofía León"
+    }
+  },
+  {
+    "id": 6,
+    "titulo": "Feriado: Año Nuevo",
+    "tipo": "Feriado",
+    "fecha": "2026-12-06T09:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Ana Torres"
+    }
+  },
+  {
+    "id": 7,
+    "titulo": "Reunión de planificación",
+    "tipo": "Reunión",
+    "fecha": "2026-12-07T10:30:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Luis Pérez"
+    }
+  },
+  {
+    "id": 8,
+    "titulo": "Formación en accesibilidad",
+    "tipo": "Formación",
+    "fecha": "2026-12-08T16:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Marta Gil"
+    }
+  },
+  {
+    "id": 9,
+    "titulo": "Lanzamiento app móvil",
+    "tipo": "Lanzamiento",
+    "fecha": "2026-12-09T12:00:00",
+    "estado": "Cancelado",
+    "responsable": {
+      "nombre": "Jorge Ruiz"
+    }
+  },
+  {
+    "id": 10,
+    "titulo": "Reunión retrospectiva",
+    "tipo": "Reunión",
+    "fecha": "2026-12-10T18:00:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Sofía León"
+    }
+  },
+  {
+    "id": 11,
+    "titulo": "Formación en .NET",
+    "tipo": "Formación",
+    "fecha": "2026-12-11T09:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Ana Torres"
+    }
+  },
+  {
+    "id": 12,
+    "titulo": "Lanzamiento de la landing",
+    "tipo": "Lanzamiento",
+    "fecha": "2026-12-12T10:30:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Luis Pérez"
+    }
+  },
+  {
+    "id": 13,
+    "titulo": "Reunión con diseño",
+    "tipo": "Reunión",
+    "fecha": "2026-12-13T16:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Marta Gil"
+    }
+  },
+  {
+    "id": 14,
+    "titulo": "Formación Git avanzado",
+    "tipo": "Formación",
+    "fecha": "2026-12-14T12:00:00",
+    "estado": "Cancelado",
+    "responsable": {
+      "nombre": "Jorge Ruiz"
+    }
+  },
+  {
+    "id": 15,
+    "titulo": "Feriado: Día del Trabajo",
+    "tipo": "Feriado",
+    "fecha": "2026-12-15T18:00:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Sofía León"
+    }
+  },
+  {
+    "id": 16,
+    "titulo": "Lanzamiento del blog",
+    "tipo": "Lanzamiento",
+    "fecha": "2026-12-16T09:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Ana Torres"
+    }
+  },
+  {
+    "id": 17,
+    "titulo": "Reunión de presupuesto",
+    "tipo": "Reunión",
+    "fecha": "2026-12-17T10:30:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Luis Pérez"
+    }
+  },
+  {
+    "id": 18,
+    "titulo": "Formación en testing",
+    "tipo": "Formación",
+    "fecha": "2026-12-18T16:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Marta Gil"
+    }
+  },
+  {
+    "id": 19,
+    "titulo": "Reunión 1:1",
+    "tipo": "Reunión",
+    "fecha": "2026-12-19T12:00:00",
+    "estado": "Cancelado",
+    "responsable": {
+      "nombre": "Jorge Ruiz"
+    }
+  },
+  {
+    "id": 20,
+    "titulo": "Lanzamiento beta cerrada",
+    "tipo": "Lanzamiento",
+    "fecha": "2026-12-20T18:00:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Sofía León"
+    }
+  },
+  {
+    "id": 21,
+    "titulo": "Formación en Docker",
+    "tipo": "Formación",
+    "fecha": "2026-12-21T09:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Ana Torres"
+    }
+  },
+  {
+    "id": 22,
+    "titulo": "Reunión de cierre de año",
+    "tipo": "Reunión",
+    "fecha": "2026-12-22T10:30:00",
+    "estado": "Pendiente",
+    "responsable": {
+      "nombre": "Luis Pérez"
+    }
+  },
+  {
+    "id": 23,
+    "titulo": "Feriado: Fiestas Patrias",
+    "tipo": "Feriado",
+    "fecha": "2026-12-23T16:00:00",
+    "estado": "Confirmado",
+    "responsable": {
+      "nombre": "Marta Gil"
+    }
+  }
+]

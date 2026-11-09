@@ -1,0 +1,171 @@
+@use '@angular/material' as mat;
+
+// La tabla completa es una tarjeta: barra arriba, filas en medio, paginador abajo.
+:host {
+  display: block;
+  padding: 8px 16px 4px;
+  border: 1px solid var(--mat-sys-outline-variant);
+  border-radius: var(--mat-sys-corner-extra-large);
+  background: var(--mat-sys-surface-container-lowest);
+  box-shadow: var(--mat-sys-level1);
+
+  // Tokens oficiales de Material: sin ::ng-deep
+  @include mat.table-overrides(
+    (
+      background-color: transparent,
+      header-headline-color: var(--mat-sys-on-surface),
+      header-headline-weight: 600,
+      header-container-height: 52px,
+      row-item-container-height: 72px,
+      row-item-outline-color: var(--mat-sys-outline-variant),
+    )
+  );
+
+  @include mat.paginator-overrides(
+    (
+      container-background-color: transparent,
+    )
+  );
+}
+
+// --- Barra superior ---
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 16px;
+
+  // Buscador, filtros y botones con la misma altura y la misma esquina
+  @include mat.form-field-overrides(
+    (
+      container-height: 48px,
+      container-vertical-padding: 12px,
+      outlined-container-shape: var(--mat-sys-corner-medium),
+      outlined-outline-color: var(--mat-sys-outline-variant),
+      outlined-hover-outline-color: var(--mat-sys-outline),
+    )
+  );
+
+  @include mat.button-overrides(
+    (
+      filled-container-height: 48px,
+      filled-container-shape: var(--mat-sys-corner-medium),
+      filled-horizontal-padding: 20px,
+      outlined-container-height: 48px,
+      outlined-container-shape: var(--mat-sys-corner-medium),
+      outlined-horizontal-padding: 20px,
+      tonal-container-height: 48px,
+      tonal-container-shape: var(--mat-sys-corner-medium),
+      protected-container-height: 48px,
+      protected-container-shape: var(--mat-sys-corner-medium),
+    )
+  );
+}
+
+.search {
+  flex: 1 1 280px;
+  max-width: 440px;
+
+  mat-icon[matPrefix] {
+    padding: 0 4px 0 12px;
+    color: var(--mat-sys-on-surface-variant);
+  }
+}
+
+.spacer {
+  flex: 1;
+}
+
+// --- Tabla ---
+.table-wrap {
+  overflow: auto;
+}
+
+// Cabecera con fondo suave y esquinas redondeadas
+th.mat-mdc-header-cell {
+  background: var(--mat-sys-surface-container);
+  border-bottom: none;
+
+  &:first-child {
+    border-radius: var(--mat-sys-corner-medium) 0 0 var(--mat-sys-corner-medium);
+  }
+
+  &:last-child {
+    border-radius: 0 var(--mat-sys-corner-medium) var(--mat-sys-corner-medium) 0;
+  }
+}
+
+tr.mat-mdc-row {
+  transition: background-color 120ms;
+
+  &:hover {
+    background: color-mix(in srgb, var(--mat-sys-primary) 4%, transparent);
+  }
+}
+
+// Acciones: botones de icono sin recuadro, se tiñen al pasar el ratón
+.actions {
+  text-align: end;
+  white-space: nowrap;
+  width: 1%;
+
+  button {
+    color: var(--mat-sys-on-surface-variant);
+    transition: color 120ms;
+
+    &:hover {
+      color: var(--mat-sys-primary);
+    }
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-end {
+  text-align: end;
+}
+
+.empty {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--mat-sys-on-surface-variant);
+}
+
+// --- Pie: ocupa todo el ancho ---
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 12px 0 8px;
+
+  @include mat.form-field-overrides(
+    (
+      container-height: 40px,
+      container-vertical-padding: 8px,
+      outlined-container-shape: var(--mat-sys-corner-small),
+      outlined-outline-color: var(--mat-sys-outline-variant),
+    )
+  );
+}
+
+.page-size {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font: var(--mat-sys-body-small);
+  color: var(--mat-sys-on-surface-variant);
+
+  mat-form-field {
+    width: 84px;
+  }
+}
+
+.danger,
+.danger mat-icon {
+  color: var(--mat-sys-error);
+}

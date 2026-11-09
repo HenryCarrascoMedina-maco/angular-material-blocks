@@ -1,0 +1,32 @@
+<header class="page-head">
+  <h1>Eventos desde tu backend</h1>
+  <p>La misma tabla, con los datos de una API: <code>GET api/eventos.json</code></p>
+</header>
+
+@if (eventos.error()) {
+  <p class="error">No se pudieron cargar los eventos.</p>
+}
+
+<ui-table
+  [data]="eventos.hasValue() ? eventos.value() : []"
+  [columns]="columns"
+  [actions]="actions"
+  [rowActions]="rowActions"
+  searchPlaceholder="Buscar evento…"
+  exportable
+  exportFileName="eventos"
+  (view)="ver($event)"
+  (edit)="editar($event)"
+  (remove)="eliminar($event)"
+>
+  <ng-template uiCell="estado" let-e>
+    <span class="estado" [attr.data-estado]="e.estado">{{ e.estado }}</span>
+  </ng-template>
+
+  <ng-template uiCell="responsable" let-e>
+    <div class="persona">
+      <span class="avatar">{{ e.responsable.nombre[0] }}</span>
+      {{ e.responsable.nombre }}
+    </div>
+  </ng-template>
+</ui-table>
